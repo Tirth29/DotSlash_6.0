@@ -10,12 +10,12 @@ const SideBar = () => {
             <div className="fixed w-1/5 h-screen py-5 bg-gray-300">
                 <h1 className="my-10 px-10 text-lg font-semibold ">Student Manager</h1>
                 <ul className="my-12 space-y-2 text-opacity-50 " >
-                    <li className=' py-2 mx-6 rounded hover:bg-4 hover:bg-blue-600  hover:text-white'> <a href="/" className="px-4 my-6 ">To do List</a> </li>
-                    <li className=' py-2 mx-6 rounded hover:bg-4 hover:bg-blue-600  hover:text-white'> <a href="/" className="px-4 my-6 ">Attandance Manager</a> </li>
-                    <li className=' py-2 mx-6 rounded hover:bg-4 hover:bg-blue-600  hover:text-white'> <a href="/" className="px-4 my-6 ">Target Marks</a> </li>
-                    <li className=' py-2 mx-6 rounded hover:bg-4 hover:bg-blue-600  hover:text-white'> <a href="/" className="px-4 my-6 ">Progress</a> </li>
-                    <li className=' py-2 mx-6 rounded hover:bg-4 hover:bg-blue-600  hover:text-white'> <a href="/" className="px-4 my-6 ">Study Material</a> </li>
-                    <li className=' py-2 mx-6 rounded hover:bg-4 hover:bg-blue-600  hover:text-white'> <a href="/" className="px-4 my-6 ">Schedule</a> </li>
+                    <li className=' py-2 mx-6 my-2 rounded hover:bg-4 hover:bg-blue-600  hover:text-white'> <a href="/" className="px-4 my-0.5 flex">To do List</a> </li>
+                    <li className=' py-2 mx-6 my-2 rounded hover:bg-4 hover:bg-blue-600  hover:text-white'> <a href="/" className="px-4 my-0.5 flex">Attandance Manager</a> </li>
+                    <li className=' py-2 mx-6 my-2 rounded hover:bg-4 hover:bg-blue-600  hover:text-white'> <a href="/" className="px-4 my-0.5 flex ">Target Marks</a> </li>
+                    <li className=' py-2 mx-6 my-2 rounded hover:bg-4 hover:bg-blue-600  hover:text-white'> <a href="/" className="px-4 my-0.5 flex ">Progress</a> </li>
+                    <li className=' py-2 mx-6 my-2 rounded hover:bg-4 hover:bg-blue-600  hover:text-white'> <a href="/" className="px-4 my-0.5 flex ">Study Material</a> </li>
+                    <li className=' py-2 mx-6 my-2 rounded hover:bg-4 hover:bg-blue-600  hover:text-white'> <a href="/" className="px-4 my-0.5 flex ">Schedule</a> </li>
 
                     {/*<SideBarLink to={'/home'} icon={<HomeIcon className='w-5' />} label="Overview" />
                     <SideBarLink to={'/stats'} icon={<StatsIcon className='w-5' />} label="Stats" />
