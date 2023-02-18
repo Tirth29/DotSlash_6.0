@@ -1,5 +1,6 @@
 import './App.css'
 import SideBar from './Sidebar'
+import Navbar from './Navbar'
 
 function App() {
   // const [count, setCount] = useState(0)
@@ -7,6 +8,7 @@ function App() {
   return (
     <>
       <SideBar />
+      <div className='w-4/5'><Navbar/></div>
     </>
   )
 }
