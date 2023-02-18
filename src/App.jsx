@@ -6,6 +6,8 @@ import AuthContext from './context/auth-context'
 import SideBar from './Sidebar'
 import Subject  from './components/MySubject'
 import Navbar from './Navbar'
+import Attendance from './components/MySubject'
+import TodoList from './components/ToDo'
 
 function App() {
   const authContext = useContext(AuthContext);
@@ -20,10 +22,10 @@ function App() {
               <Navbar />
               <Routes>
                 <Route path='/dashboard' element={"Dashboard"} />
-                <Route path='/todo' element={"Todo"} />
                 <Route path='/subjects' element={<Subject />} />
                 <Route path="*" element={<Navigate replace to="/dashboard" />} />
-                <Route path="/attendence" element={<Navigate replace to = "/attendence"/>} />
+                <Route path="/attendance" element={<Attendance/>} />
+                <Route path="/todo" element={<TodoList/>} />
               </Routes>
             </div>
           </>

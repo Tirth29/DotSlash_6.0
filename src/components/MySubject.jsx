@@ -18,7 +18,7 @@ function Subject() {
             <div className="subject w-4/5 ">
                 <div className="flex justify-between">
                     <div className="pl-20 p-5 text-xl font-bold">My Subjects</div>
-                    <div className="bg-blue-600 text-white mr-10 m-5 p-2 rounded-lg " onClick={showFormHandler} >+ Add subject</div>
+                    <div className="bg-blue-500 text-white mr-10 m-5 p-2 rounded-lg hover:bg-blue-700 hover: cursor-pointer" onClick={showFormHandler} >+ Add subject</div>
                 </div>
                 <div className="content flex">
                     <div className="p-2 card m-8 bg-[#e1d9d9] w-52">

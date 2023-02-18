@@ -1,7 +1,7 @@
 .app {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
     height: 100vh;
     background: linear-gradient(
         rgba(255, 255, 255, 0.7),
@@ -10,8 +10,7 @@
       url("https://images.pexels.com/photos/114979/pexels-photo-114979.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500");
     background-size: cover;
     background-position: center;
-    margin-left: 307px;
-    width: 1000px;
+    width: 1228px;
   }
   
   .form{
@@ -25,7 +24,7 @@
       color: rgb(77, 1, 77);
       text-align: center;
   }
-  
+
   .subject, .desc , .marks {
     margin: 10px;
     border-radius: 5px;
