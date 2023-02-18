@@ -4,35 +4,25 @@ import './App.css'
 import Authentication from './Authentication'
 import AuthContext from './context/auth-context'
 import SideBar from './Sidebar'
+import Navbar from './Navbar'
 
 function App() {
   const authContext = useContext(AuthContext);
-
-  // if (authContext.isLoggedIn) {
-  //   return (
-  //     <Routes>
-  //       <Route path="/signup" element={<Authentication isSignUp={true} />} />
-  //       <Route path="/signin" element={<Authentication isSignUp={false} />} />
-  //       <Route path="*" element={<Navigate replace to="/signup" />} />
-  //     </Routes>
-  //   )
-  // } else {
-  //   return (
-  //     <Routes>
-  //       <Route path='/dashboard' />
-  //     </Routes>
-  //   )
-  // }
 
   return (
     <>
       {
         authContext.isLoggedIn ?
-          <Routes>
+          <>
             <SideBar />
-            <Route path='/dashboard' element={"Dashboard"} />
-            <Route path="*" element={<Navigate replace to="/dashboard" />} />
-          </Routes>
+            <div className='flex flex-col w-4/5'>
+              <Navbar />
+              <Routes>
+                <Route path='/dashboard' element={"Dashboard"} />
+                <Route path="*" element={<Navigate replace to="/dashboard" />} />
+              </Routes>
+            </div>
+          </>
           :
           <Routes>
             <Route path="/signup" element={<Authentication isSignUp={true} />} />
