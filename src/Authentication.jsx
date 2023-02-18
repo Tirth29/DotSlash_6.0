@@ -80,7 +80,7 @@ const Authentication = (props) => {
                 {isSignUp &&
                     <>
                         <div className='flex space-x-4'>
-                            <input className={inputStyle} onChange={fname.onChange} value={fname.value} autoComplete={"kjdsn"} type="text" placeholder="First Name" name='fname' />
+                            <input className={inputStyle} onChange={fname.onChange} value={fname.value} type="text" placeholder="First Name" name='fname' />
                             <input className={inputStyle} onChange={lname.onChange} value={lname.value} type="text" placeholder="Last Name" name='lname' />
                         </div>
                         {/* <input className={inputStyle} onChange={username.onChange} value={username.value} type="text" placeholder="Username" name='username' /> */}
