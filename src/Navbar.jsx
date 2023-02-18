@@ -19,6 +19,7 @@ const Navbar = () => {
                     </li>
                 </ul>
             </div>
+            <div className="h-20"></div>
         </React.Fragment>
     )
 }
