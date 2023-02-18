@@ -6,6 +6,7 @@ import AuthContext from './context/auth-context'
 import SideBar from './Sidebar'
 import Subject  from './components/MySubject'
 import Navbar from './Navbar'
+import SubjectPage from './subjectPage'
 
 function App() {
   const authContext = useContext(AuthContext);
@@ -22,6 +23,7 @@ function App() {
                 <Route path='/dashboard' element={"Dashboard"} />
                 <Route path='/todo' element={"Todo"} />
                 <Route path='/subjects' element={<Subject />} />
+                <Route path='/subjectPage' element={<SubjectPage />} />
                 <Route path="*" element={<Navigate replace to="/dashboard" />} />
               </Routes>
             </div>
@@ -33,7 +35,7 @@ function App() {
             <Route path="*" element={<Navigate replace to="/signup" />} />
           </Routes>
       }
-    </>
+      </>
   )
 }
 
