@@ -33,7 +33,7 @@ const SideBar = () => {
                     </NavLink>
                 </ul>
             </div>
-            <div className="h-screen"></div>
+            <div className="h-screen w-1/5"></div>
         </React.Fragment>
     )
 }
