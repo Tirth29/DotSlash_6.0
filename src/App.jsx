@@ -21,6 +21,7 @@ function App() {
               <Routes>
                 <Route path='/dashboard' element={"Dashboard"} />
                 <Route path="*" element={<Navigate replace to="/dashboard" />} />
+                <Route path="/attendence" element={<Navigate replace to = "/attendence"/>} />
               </Routes>
             </div>
           </>
@@ -29,6 +30,7 @@ function App() {
             <Route path="/signup" element={<Authentication isSignUp={true} />} />
             <Route path="/signin" element={<Authentication isSignUp={false} />} />
             <Route path="*" element={<Navigate replace to="/signup" />} />
+            
           </Routes>
       }
     </>

@@ -14,18 +14,18 @@
     width: 1000px;
   }
   
-  form{
+  .form{
       background-color: white;
       padding: 0px 60px;
       border-radius: 10px;
       height: 220px;
   }
   
-  h1{
-      
+  .form-heading{
       color: rgb(77, 1, 77);
       text-align: center;
   }
+  
   .subject, .desc , .marks {
     margin: 10px;
     border-radius: 5px;
