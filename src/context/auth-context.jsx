@@ -94,8 +94,6 @@ export const AuthContextProvider = (props) => {
         setIsLoggedIn(true);
         localStorage.setItem("user", JSON.stringify(u));
         localStorage.setItem("isLoggedIn", true);
-
-        
     };
 
     const signup = async (data) => {

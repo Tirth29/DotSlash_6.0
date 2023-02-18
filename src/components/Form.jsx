@@ -1,43 +1,53 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import FormInput from "./Input";
 import './form.css'
-const Form = () => {
+import AuthContext from "../context/auth-context";
+const Form = ({ closeForm, validateSubject, addSubject }) => {
   const [values, setValues] = useState({
-    Subject_Name : "",
-    Description: "",
-    Total_Marks : "",
+    subjectName: "",
+    description: "",
+    totalMarks: "",
   });
 
   const inputs = [
     {
       className: "subject",
       id: 1,
-      name: "subject_name",
+      name: "subjectName",
       type: "text",
       placeholder: "Subject Name",
-      errorMessage:
-        "Subject Name should be 2-16 characters",
+      // errorMessage:
+      //   "Subject Name should be 2-16 characters",
       label: "Subject Name : ",
       required: true,
     },
     {
-      className : "desc",
+      className: "desc",
       id: 2,
-      name: "Description",
+      name: "description",
       type: "text",
       placeholder: "Description",
       label: "Description : ",
     },
     {
-      className : "marks",
+      className: "marks",
       id: 3,
-      name: "Total_Marks",
+      name: "totalMarks",
       type: "int",
       placeholder: "Total Marks",
       label: "Total Marks : ",
     },
+    // {
+    //   className: "attendance",
+    //   id:4,
+    //   name: "Total Attendance",
+    //   type: "int",
+    //   placeholder: "Total Attendance",
+
+    // }
   ];
 
+  const authContext = useContext(AuthContext);
   const handleSubmit = (e) => {
     e.preventDefault();
   };
@@ -47,18 +57,24 @@ const Form = () => {
   };
 
   return (
-    <div className="app  bg-[#e0d7d7] ">
-      <form onSubmit={handleSubmit}>
+    <div className="app bg-[#e0d7d7] ">
+      <form onSubmit={handleSubmit} >
         <h1 className="font-bold text-xl">Register</h1>
         {inputs.map((input) => (
-          <FormInput 
+          <FormInput
             key={input.id}
             {...input}
             value={values[input.name]}
             onChange={onChange}
           />
         ))}
-        <button className="bg-black text-white w-32 h-8 flex justify-center mx-auto">Submit</button>
+        <div className="mx-auto flex justify-center space-x-3">
+          <button className="bg-red-600 text-white w-32 h-8 flex justify-center" onClick={closeForm}>Cancel</button>
+          <button className="bg-black text-white w-32 h-8 flex justify-center" onClick={async () => {
+            const result = await addSubject(values, authContext.user.uid);
+            if(result) closeForm();
+          }}>Submit</button>
+        </div>
       </form>
     </div>
   );
