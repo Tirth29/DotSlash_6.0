@@ -6,6 +6,8 @@ import AuthContext from './context/auth-context'
 import SideBar from './Sidebar'
 import Subject  from './components/MySubject'
 import Navbar from './Navbar'
+import Attendance from './components/MySubject'
+import TodoList from './components/ToDo'
 import SubjectPage from './subjectPage'
 
 function App() {
@@ -21,10 +23,11 @@ function App() {
               <Navbar />
               <Routes>
                 <Route path='/dashboard' element={"Dashboard"} />
-                <Route path='/todo' element={"Todo"} />
                 <Route path='/subjects' element={<Subject />} />
                 <Route path='/subjectPage' element={<SubjectPage />} />
                 <Route path="*" element={<Navigate replace to="/dashboard" />} />
+                <Route path="/attendance" element={<Attendance/>} />
+                <Route path="/todo" element={<TodoList/>} />
               </Routes>
             </div>
           </>
@@ -33,6 +36,7 @@ function App() {
             <Route path="/signup" element={<Authentication isSignUp={true} />} />
             <Route path="/signin" element={<Authentication isSignUp={false} />} />
             <Route path="*" element={<Navigate replace to="/signup" />} />
+            
           </Routes>
       }
       </>

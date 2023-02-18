@@ -13,7 +13,7 @@ const SideBar = () => {
             <div className="fixed w-1/5 h-screen py-5 bg-gray-300 ">
                 <h1 className="my-10 px-10 text-lg font-semibold ">Student Manager</h1>
                 <ul className="my-12 space-y-2 text-opacity-50 " >
-                    <NavLink to="/todo" className={({ isActive }) => isActive ? activeStyle : inActiveStyle}>
+                    <NavLink to={"/todo"} className={({ isActive }) => isActive ? activeStyle : inActiveStyle}>
                         <li className=' py-2 mx-6 my-2 rounded hover:bg-4 hover:bg-blue-600  hover:text-white'> <a href="/" className="px-4 my-0.5 flex">To do List</a> </li>
                     </NavLink>
                     <NavLink to={"/attendance"} className={({ isActive }) => isActive ? activeStyle : inActiveStyle}>

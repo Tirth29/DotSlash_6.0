@@ -48,8 +48,8 @@ const Form = () => {
 
   return (
     <div className="app  bg-[#e0d7d7] ">
-      <form onSubmit={handleSubmit}>
-        <h1 className="font-bold text-xl">Register</h1>
+      <form className="form" onSubmit={handleSubmit}>
+        <h1 className="form-heading font-bold text-xl">Register</h1>
         {inputs.map((input) => (
           <FormInput 
             key={input.id}
