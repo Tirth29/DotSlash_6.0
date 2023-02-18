@@ -75,12 +75,12 @@ const Authentication = (props) => {
 
     return (
         <div className="flex flex-col items-center w-full h-screen text-gray-200 bg-gradient-to-br from-emerald-900 to-cyan-900">
-            <form className="flex flex-col space-y-4 w-96 mt-28" onSubmit={submitHandler}>
-                <h1 className="text-center text-3xl font-semibold my-4">{isSignUp ? "Don't have an account?" : "Have an Account?"}</h1>
+            <form className="flex flex-col h-fit space-y-4 w-[500px] mt-28 bg-transparent" onSubmit={submitHandler}>
+                <h1 className="text-center text-3xl font-semibold my-4 text-white">{isSignUp ? "Don't have an account?" : "Already have an Account?"}</h1>
                 {isSignUp &&
                     <>
                         <div className='flex space-x-4'>
-                            <input className={inputStyle} onChange={fname.onChange} value={fname.value} autoComplete={"kjdsn"} type="text" placeholder="First Name" name='fname' />
+                            <input className={inputStyle} onChange={fname.onChange} value={fname.value} type="text" placeholder="First Name" name='fname' />
                             <input className={inputStyle} onChange={lname.onChange} value={lname.value} type="text" placeholder="Last Name" name='lname' />
                         </div>
                         {/* <input className={inputStyle} onChange={username.onChange} value={username.value} type="text" placeholder="Username" name='username' /> */}
