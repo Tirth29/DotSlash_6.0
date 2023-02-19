@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import FormInput from "./Input";
 import './form.css'
 import AuthContext from "../context/auth-context";
+import { async } from "@firebase/util";
 const Form = ({ closeForm, validateSubject, addSubject }) => {
   const [values, setValues] = useState({
     subjectName: "",
@@ -37,19 +38,13 @@ const Form = ({ closeForm, validateSubject, addSubject }) => {
       placeholder: "Total Marks",
       label: "Total Marks : ",
     },
-    // {
-    //   className: "attendance",
-    //   id:4,
-    //   name: "Total Attendance",
-    //   type: "int",
-    //   placeholder: "Total Attendance",
-
-    // }
   ];
 
   const authContext = useContext(AuthContext);
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    const result = await addSubject(values, authContext.user.uid);
+    if (result) closeForm();
   };
 
   const onChange = (e) => {
@@ -70,10 +65,7 @@ const Form = ({ closeForm, validateSubject, addSubject }) => {
         ))}
         <div className="mx-auto flex justify-center space-x-3">
           <button className="bg-red-600 text-white w-32 h-8 flex justify-center" onClick={closeForm}>Cancel</button>
-          <button className="bg-black text-white w-32 h-8 flex justify-center" onClick={async () => {
-            const result = await addSubject(values, authContext.user.uid);
-            if(result) closeForm();
-          }}>Submit</button>
+          <button type="submit" className="bg-black text-white w-32 h-8 flex justify-center">Submit</button>
         </div>
       </form>
     </div>

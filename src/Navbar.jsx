@@ -6,10 +6,10 @@ const Navbar = () => {
     return (
         <React.Fragment>
             <div className="fixed w-4/5 right-0 h-20 flex items-center py-15 bg-gray-900 md-0 overflow-hidden">
-                <ul>
-                    <li className="flex justify-between mx-10 bg-white-100">
+                <ul className="flex justify-between w-full">
+                    <li className="flex justify-between w-full mx-10 bg-white-100">
                         <div className="inline-block">
-                            <input type="search" className=" outline-none rounded w-80 bg-gray-800 p-2 hover:border-underlined  text-white" placeholder="Search" />
+                            <input type="search" className=" outline-none rounded w-[630px] bg-gray-800 p-2 hover:border-underlined  text-white" placeholder="Search" />
                             {/* <button type="submit" className="outline-none bg-white">
                             </button> */}
                         </div>
@@ -20,9 +20,9 @@ const Navbar = () => {
                         <a href="/" className="block m-2 float-right text-white ">{authContext.user.displayName}</a>
                     </li>
                 </ul>
-                <div class="p-3">
+                <div className="p-3">
                     {/* <label class="block font-medium text-gray-600" for="">Email</label> */}
-                    <div class="relative flex flex-row-reverse items-center">
+                    {/* <div class="relative flex flex-row-reverse items-center">
                         <input
                             class="w-96 p-2 pl-4 rounded-lg bg-gray-700 outline-none"
                             type="text"
@@ -41,9 +41,10 @@ const Navbar = () => {
                                 d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z"
                             />
                         </svg>
-                    </div>
+                    </div> */}
                 </div>
             </div>
+            <div className="h-20"></div>
         </React.Fragment>
     )
 }

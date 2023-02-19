@@ -10,34 +10,22 @@ function validateSubject({ subjectName, description, totalMarks }) {
     return subjectName && description && totalMarks;
 }
 
-async function addSubject(subject, userid) {
-    if (validateSubject) {
-        const subjectsRef = collection(db, 'subjects');
-
-        let obj = { ...subject, userid }
-        const docRef = await addDoc(subjectsRef, obj);
-        console.log('doc added with id: ', docRef);
-
-        return docRef;
-    }
-}
 async function fetchSubjects(userid, setSubjects) {
-    // console.log(localStorage.getItem('subjects'))
-    if (!(localStorage.getItem("subjects") === "undefined" || localStorage.getItem("subjects") === "null")) {
+    // console.log(typeof null)
+    if ((localStorage.getItem("subjects") === null || localStorage.getItem("subjects") === "undefined")) {
         const q = query(collection(db, "subjects"), where("userid", "==", userid));
         const querySS = await getDocs(q);
         // console.log('hey')
         if (!querySS.empty) {
             let data = querySS.docs.map(data => data.data())
-            localStorage.setItem("subjects", JSON.stringify())
+            localStorage.setItem("subjects", JSON.stringify(data))
             setSubjects(data);
         }
     } else {
-        setSubjects(...JSON.parse(localStorage.getItem("subjects")));
+        console.log(typeof JSON.parse(localStorage.getItem("subjects")).map(d => d));
+        setSubjects(JSON.parse(localStorage.getItem("subjects")).map(d => d));
     }
 }
-
-
 
 function Subject() {
     const showFormHandler = () => {
@@ -50,17 +38,31 @@ function Subject() {
 
     useEffect(() => {
         fetchSubjects(authContext.user.uid, setSubjects);
-    }, [subjects]);
+    }, []);
 
-    const addSubject = (subject) => {
-        let newState = [...subjects, subject];
-        setSubjects(newState);
-        // setSubjects((prevState) => [...prevState, subject]);
-        localStorage.setItem('subjects', newState);
+    // const addSubject = (subject) => {
+    //     let newState = [...subjects, subject];
+    //     setSubjects(newState);
+    //     // setSubjects((prevState) => [...prevState, subject]);
+    // }
+    async function addSubject(subject, userid) {
+        if (validateSubject) {
+            const subjectsRef = collection(db, 'subjects');
+
+            let obj = { ...subject, userid }
+            const docRef = await addDoc(subjectsRef, obj);
+            console.log('doc added with id: ', docRef.id);
+            if (docRef.id) {
+                let newState = [...subjects, subject];
+                setSubjects(newState);
+                localStorage.setItem('subjects', JSON.stringify(newState));
+                return docRef;
+            }
+        }
     }
     // const subjectsContext = useContext(SubjectsContext);
     // const { setSubjects, fetchSubjects } = subjectsContext;
-    console.log(subjects);
+    // console.log(subjects);
 
     return (
         <div className='w-4/5'>
@@ -75,11 +77,11 @@ function Subject() {
                     <div className="pl-20 p-5 text-xl font-bold">My Subjects</div>
                     <div className="bg-blue-500 text-white mr-10 m-5 p-2 rounded-lg hover:bg-blue-700 hover: cursor-pointer" onClick={showFormHandler} >+ Add subject</div>
                 </div>
-                <div className="content flex">
+                <div className="content flex flex-wrap">
                     {
                         subjects.map(subject => {
                             // console.log(subjects);
-                            return <div className="p-2 card m-8 bg-[#e1d9d9] w-52">
+                            return <div key={subject.subjectName} className="p-2 card m-8 bg-[#e1d9d9] w-52">
                                 <img href="" className="w-48 h-48" />
                                 <p className="text-lg font-semibold">{subject.subjectName}</p>
                                 <p>{subject.description}</p>
